@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  cpp-runner:
+    build:
+      context: ./docker-images/cpp
+    image: code-runner-cpp
+    container_name: cpp-runner
+
+  python-runner:
+    build:
+      context: ./docker-images/python
+    image: code-runner-python
+    container_name: python-runner
+
+  java-runner:
+    build:
+      context: ./docker-images/java
+    image: code-runner-java
+    container_name: java-runner
