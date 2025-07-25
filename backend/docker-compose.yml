@@ -1,6 +1,19 @@
 version: "3"
 
 services:
+  backend:
+    build:
+      context: .
+    container_name: backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./temp:/app/temp
+    depends_on:
+      - cpp-runner
+      - python-runner
+      - java-runner
+
   cpp-runner:
     build:
       context: ./docker-images/cpp
