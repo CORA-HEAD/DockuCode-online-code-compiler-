@@ -18,12 +18,12 @@ function App() {
   const handleRun = async () => {
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/run", {
+      const res = await axios.post("https://dockucode-online-code-compiler-1.onrender.com/run", {
         code,
         language,
         input: userInput,
       });
-      setTerminalOutput(`Input:\n${userInput}\n\nOutput:\n${res.data.output}`);
+      setTerminalOutput(`\n${userInput}\n\nOutput:\n${res.data.output}`);
     } catch (err) {
       setTerminalOutput("Error running code.");
     }
