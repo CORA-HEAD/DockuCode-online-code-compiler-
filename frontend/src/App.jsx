@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import Editor from "@monaco-editor/react";
@@ -18,11 +16,14 @@ function App() {
   const handleRun = async () => {
     setLoading(true);
     try {
-      const res = await axios.post("https://dockucode-online-code-compiler-1.onrender.com/run", {
-        code,
-        language,
-        input: userInput,
-      });
+      const res = await axios.post(
+        "https://dockucode-online-code-compiler-1.onrender.com/run",
+        {
+          code,
+          language,
+          input: userInput,
+        }
+      );
       setTerminalOutput(`\n${userInput}\n\nOutput:\n${res.data.output}`);
     } catch (err) {
       setTerminalOutput("Error running code.");
@@ -44,10 +45,15 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white p-4">
-      <h2 className="text-center text-3xl mb-4 font-bold">
-        <iframe src="https://my.spline.design/dockucode-lEGavTYjsWNxQozwHO7x1mE8-1yK/" frameborder="0" width="100%" height="100%"></iframe>
-      </h2>
+    <div className="min-h-screen bg-blue-500 text-white p-4 ">
+      <div className="m-3.5 bg-black text-white flex justify-center">
+        <div className="w-full bg-accent-foreground  rounded-lg shadow-lg">
+          <iframe
+            src="https://my.spline.design/dockucode-lEGavTYjsWNxQozwHO7x1mE8-1yK/"
+            width="100%"
+            height="100%" ></iframe>
+        </div>
+      </div>
 
       <div className="flex flex-col lg:flex-row gap-4">
         <Card className="flex-1">
